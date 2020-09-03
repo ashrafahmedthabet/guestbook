@@ -1,0 +1,47 @@
+        <div class="admin-panel__content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header">
+                        <h1>All Users</h1>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-hover table-bordered table-content">
+                        <thead>
+                            <tr>
+                                <th>Full Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                foreach($allusers as $users){
+                                    $id=$users['id'];
+                                    $fname=$users['fullname'];
+                                    $username=$users['username'];
+                                    $email=$users['email'];
+                                    echo "
+                                    <tr>
+                                        <td>$fname</td>
+                                        <td>$username</td>
+                                        <td>$email</td>
+                                        <td>
+                                            <a href='updateuser.php?id=$id' class='btn btn-success'>Edit</a>
+                                            <a href='deleteuser.php?id=$id' class='btn btn-danger'>Delete</a>
+                                        </td>
+                                    </tr>";
+                                }
+                            ?>
+                           
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+       

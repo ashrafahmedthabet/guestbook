@@ -1,0 +1,49 @@
+        <div class="admin-panel__content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header">
+                        <h1>All Products</h1>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <table class="table table-hover table-bordered table-content">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Product Price</th>
+                                <th>Product Description</th>
+                                <th>Product Availability</th>
+                                <th>Product Image</th>
+                                <th>Manage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php 
+                            foreach($allproducts as $products){
+                                $id=$products['id'];
+                                $title=$products['title'];
+                                $desc=$products['description'];
+                                $img=$products['image'];
+                                $price=$products['price'];
+                                $available=($products['available']==1)?'Available':'Not Available';
+                                echo"
+                            <tr>
+                                <td class='product-name'>$title</td>
+                                <td class='product-price'>$price</td>
+                                <td class='product-desc'>$desc</td>
+                                <td class='product-available'>$available</td>
+                                <td class='product-image'><img src='../uploads/$img' alt=''></td>
+                                <td class='product-options'>
+                                    <a href='updateproduct.php?id=$id' class='btn btn-success'>Edit</a>
+                                    <a href='deleteproduct.php?id=$id' class='btn btn-danger'>Delete</a>
+                                </td>
+                            </tr>";
+                              }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
